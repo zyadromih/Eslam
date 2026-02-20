@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #064e3b;
+    /* Deep Emerald Green */
+    --secondary-color: #b45309;
+    /* Deep Amber/Gold */
+    --accent-color: #10b981;
+    /* Lighter Emerald */
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-color: #1e293b;
+    --header-footer-bg: #064e3b;
+    --header-footer-text: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--header-footer-bg);
+    color: var(--header-footer-text);
+    padding: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Amiri', serif;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--secondary-color);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #ffffff;
+    padding: 1rem;
+    gap: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+nav button {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+nav button:hover {
+    background: var(--primary-color);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.search-box {
+    margin-bottom: 2rem;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-family: 'Cairo', sans-serif;
+    transition: border-color 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.section {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    color: var(--primary-color);
+    border-right: 5px solid var(--secondary-color);
+    padding-right: 15px;
+    margin-bottom: 1.5rem;
+    font-family: 'Amiri', serif;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+    border-right: 4px solid var(--accent-color);
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background: var(--header-footer-bg);
+    color: white;
+    margin-top: 4rem;
+    font-weight: bold;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.4rem;
+        padding: 1.2rem 1rem;
+    }
+
+    nav {
+        padding: 0.8rem 0.5rem;
+        gap: 8px;
+        /* Allow horizontal scroll if buttons overflow, providing a modern app feel */
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    nav::-webkit-scrollbar {
+        display: none;
+        /* Hide scrollbar for cleaner look */
+    }
+
+    nav button {
+        font-size: 0.85rem;
+        padding: 0.5rem 1rem;
+        flex: 0 0 auto;
+        /* Prevent buttons from shrinking */
+    }
+
+    .container {
+        margin: 1rem auto;
+        padding: 0 1rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    .card {
+        padding: 1.2rem;
+        font-size: 1rem;
+        border-right-width: 4px;
+        margin-bottom: 0.8rem;
+    }
+
+    .search-box {
+        margin-bottom: 1.5rem;
+    }
+
+    .search-box input {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+
+    footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+        font-size: 0.9rem;
+    }
+}
